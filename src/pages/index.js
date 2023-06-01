@@ -111,7 +111,7 @@ const Page = () => {
                     </TimelineSeparator>
                     <TimelineContent sx={{ color: "white", textShadow: "2px 2px 10px black", maxWidth: "500px" }}>
                       <Typography variant="h4" sx={{ mb: 2, color: "white" }}>
-                        We're thrilled to have you here.
+                        We are thrilled to have you here.
                         This repository is your go-to resource for accessing the latest code, tools, and documentation needed to make your work more efficient and effective.
                       </Typography>
                     </TimelineContent>
@@ -141,8 +141,8 @@ const Page = () => {
       <Container maxWidth="md" sx={{ textAlign: "center" }}>
         <Typography variant="h4" sx={{ mb: 2, color: "white", textShadow: "2px 2px 10px black" }}>
           This repository serves as a central hub for all of our projects.
-          Here, you'll find everything from design guidelines and coding standards to UI components and libraries.
-          We've also included a range of tools and scripts that will help you automate common tasks and streamline your workflow.
+          Here, you will find everything from design guidelines and coding standards to UI components and libraries.
+          We have also included a range of tools and scripts that will help you automate common tasks and streamline your workflow.
         </Typography>
       </Container>
       {/**

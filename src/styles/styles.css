@@ -1,3 +1,7 @@
+body,html{
+    overflow-x: hidden !important;
+}
+
 .fundo {
     background-image: url("../../public/fundex4.jpg");
     background-size: auto;

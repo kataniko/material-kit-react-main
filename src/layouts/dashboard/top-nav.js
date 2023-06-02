@@ -141,14 +141,14 @@ export const TopNav = (props) => {
       >
         <Fade in={open}>
           <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '5px' }}>
-            <Typography variant="h5" style={{ marginBottom: '10px' }}>User List</Typography>
+            <Typography variant="h5" style={{ marginBottom: '10px', backgroundColor:"black", borderRadius:5,padding:0, textAlign:"center", fontSize:17 }}>User List</Typography>
             {loading && <div>Loading...</div>}
             {error && <div>Error: {error}</div>}
             {!loading && !error && (
               <List>
                 {data.map(user => (
                   <ListItem key={user.id}>
-                    <ListItemText primary={`${user.id}: ${user.name}`} />
+                    <ListItemText sx={{color:"black"}} primary={`${user.id}: ${user.name}`} />
                   </ListItem>
                 ))}
               </List>

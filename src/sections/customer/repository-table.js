@@ -21,7 +21,8 @@ import { Scrollbar } from 'src/components/scrollbar';
 import { useState, useEffect } from 'react';
 import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
 import { Card, InputAdornment, OutlinedInput, SvgIcon } from '@mui/material';
-import { LinearProgress } from "@mui/material"
+import { LinearProgress } from "@mui/material";
+import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 
 export const CustomersTable = () => {
 
@@ -126,9 +127,9 @@ export const CustomersTable = () => {
 
   return (
 
-    <Card sx={{backgroundColor: 'rgba(255, 255, 255,0.2)', border:"1px solid white"}}>
-      <Card sx={{ p: 2, display: "flex", justifyContent: "space-between", backgroundColor: 'rgba(255, 255, 255, 0)',  }}>
-        <OutlinedInput 
+    <Card sx={{ backgroundColor: 'rgba(255, 255, 255,0.1)', border: "1px solid white", borderRadius: 2 }}>
+      <Card sx={{ p: 2, display: "flex", justifyContent: "space-between", backgroundColor: 'rgba(255, 255, 255, 0)' }}>
+        <OutlinedInput
           fullWidth
           placeholder="Search customer"
           startAdornment={(
@@ -141,7 +142,7 @@ export const CustomersTable = () => {
               </SvgIcon>
             </InputAdornment>
           )}
-          sx={{ maxWidth: 500 }}
+          sx={{ maxWidth: 500, color: "white" }}
           value={searchQuery}
           onChange={handleSearchChange}
         />
@@ -162,7 +163,7 @@ export const CustomersTable = () => {
 
       <Scrollbar>
 
-        <Box  sx={{ minWidth: 800 }}>
+        <Box sx={{ minWidth: 800 }}>
 
           <Table items={filteredData}>
 
@@ -176,27 +177,39 @@ export const CustomersTable = () => {
                 </TableCell>
 
                 <TableCell>
-                  Title
+                  <Typography sx={{ textAlign: "left" }}>
+                    Title
+                  </Typography>
                 </TableCell>
 
                 <TableCell>
-                  Posted By:
+                  <Typography sx={{ textAlign: "center" }}>
+                    Posted By
+                  </Typography>
                 </TableCell>
 
                 <TableCell>
-                  Impact
+                  <Typography sx={{ textAlign: "center" }}>
+                    Impact
+                  </Typography>
                 </TableCell>
 
                 <TableCell>
-                  Repository
+                  <Typography sx={{ textAlign: "center" }}>
+                    Repository
+                  </Typography>
                 </TableCell>
 
-                <TableCell>
-                  Tags
+                <TableCell >
+                  <Typography sx={{ textAlign: "center" }}>
+                    Tags
+                  </Typography>
                 </TableCell>
 
-                <TableCell sx={{color:"cyan"}}>
-                  Date
+                <TableCell sx={{ color: "cyan" }}>
+                  <Typography sx={{ textAlign: "center", fontWeight: 500 }}>
+                    Date
+                  </Typography>
                 </TableCell>
                 <TableCell>
 
@@ -207,87 +220,108 @@ export const CustomersTable = () => {
             </TableHead>
 
             <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-              <DialogContent sx={{border:"1px solid white"}}>
+              <DialogContent sx={{ backgroundColor: "rgba(255,255,255,0)" }}>
+
 
                 {selectedItem && (
 
-                  <Box>
+                  <Box sx={{ backgroundColor: "transparent" }} >
+                    <Card elevation={10} sx={{ boxShadow: "2px 2px 10px black", height: 500 }}>
+                      <CardContent>
 
-                    <Typography sx={{color:"black", padding:2, borderRadius:2, textAlign:"center"}}  variant="h4">
-                      
-                      {selectedItem.titulo}
-                    </Typography>
+                        <Typography sx={{ color: "black", padding: 2, borderRadius: 2, textAlign: "center" }} variant="h4">
+                          {selectedItem.titulo}
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex",border:"1px solid black",padding:1,borderRadius:1.5  }}>
-                    <Typography sx={{ marginRight: 1, fontWeight: "bold",backgroundColor:"black",padding:1, borderRadius:1.5 }}>
-                        Name:
-                      </Typography>
-                      {selectedItem.name}
-                    </Typography>
+                        <Typography sx={{ margin: 1, display: "flex", border: "1px solid black", padding: 1, borderRadius: 1.5, alignItems: "center" }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold", backgroundColor: "black", padding: 1, borderRadius: 1.5 }}>
+                            Name:
+                          </Typography>
+                          <Typography sx={{ color: "black", fontSize: 18 }}>
+                            {selectedItem.name}
+                          </Typography>
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex",border:"1px solid black",padding:1,borderRadius:1.5  }}>
-                      <Typography sx={{ marginRight: 1, fontWeight: "bold",backgroundColor:"black",padding:1, borderRadius:1.5 }}>
-                        Impact:
-                      </Typography>
-                      {selectedItem.impact}
-                    </Typography>
+                        <Typography sx={{ margin: 1, display: "flex", border: "1px solid black", padding: 1, borderRadius: 1.5 }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold", backgroundColor: "black", padding: 1, borderRadius: 1.5 }}>
+                            Impact:
+                          </Typography>
+                          <Typography sx={{ color: "black", fontSize: 18 }}>
+                            {selectedItem.impact}
+                          </Typography>
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex",border:"1px solid black",padding:1,borderRadius:1.5  }}>
-                      <Typography sx={{ marginRight: 1, fontWeight: "bold",backgroundColor:"black",padding:1, borderRadius:1.5  }}>
-                        Bitbucket:
-                      </Typography>
-                      {selectedItem.bitbucket}
-                    </Typography>
+                        <Typography sx={{ margin: 1, display: "flex", border: "1px solid black", padding: 1, borderRadius: 1.5, alignItems: "center" }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold", backgroundColor: "black", padding: 1, borderRadius: 1.5 }}>
+                            Bitbucket:
+                          </Typography>
+                          <Typography sx={{ color: "black", fontSize: 18 }}>
+                            {selectedItem.bitbucket}
+                          </Typography>
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex", border:"1px solid black",padding:1,borderRadius:1.5 }}>
-                      <Typography sx={{ marginRight: 1, fontWeight: "bold",backgroundColor:"black",padding:1, borderRadius:1.5  }}>
-                        Tags:
-                      </Typography>
-                      {selectedItem.tags.map((tag) => tag.name).join(', ')}
-                    </Typography>
+                        <Typography sx={{ margin: 1, display: "flex", border: "1px solid black", padding: 1, borderRadius: 1.5, alignItems: "center" }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold", backgroundColor: "black", padding: 1, borderRadius: 1.5 }}>
+                            Tags:
+                          </Typography>
+                          <Typography sx={{ color: "black", fontSize: 18 }}>
+                            {selectedItem.tags.map((tag) => tag.name).join(', ')}
+                          </Typography>
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex",border:"1px solid black",padding:1,borderRadius:1.5 }}>
-                      <Typography sx={{ marginRight: 1, fontWeight: "bold",backgroundColor:"black",padding:1, borderRadius:1.5  }}>
-                        Created at:
-                      </Typography>
+                        <Typography sx={{ margin: 1, display: "flex", border: "1px solid black", padding: 1, borderRadius: 1.5, alignItems: "center" }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold", backgroundColor: "black", padding: 1, borderRadius: 1.5 }}>
+                            Created at:
+                          </Typography>
+                          <Typography sx={{ color: "black", fontSize: 18 }}>
+                            {selectedItem.created_at}
+                          </Typography>
+                        </Typography>
 
-                      {selectedItem.created_at}
-                    </Typography>
+                        <Typography sx={{ margin: 1, display: "flex" }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold" }}>
+                            Description:
+                          </Typography>
+                          {selectedItem.description}
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex" }}>
-                      <Typography sx={{ marginRight: 1, fontWeight: "bold" }}>
-                        Description:
-                      </Typography>
-                      {selectedItem.description}
-                    </Typography>
+                        <Typography sx={{ margin: 1, display: "flex" }}>
+                          <Typography sx={{ marginRight: 1, fontWeight: "bold" }}>
+                            Code:
+                          </Typography>
+                          {selectedItem.description}
+                        </Typography>
 
-                    <Typography sx={{ margin: 1, display: "flex" }}>
-                      <Typography sx={{ marginRight: 1, fontWeight: "bold" }}>
-                        Code:
-                      </Typography>
-                      {selectedItem.description}
-                    </Typography>
+                      </CardContent>
+                    </Card>
+
 
                     <form onSubmit={handleEditSubmit}>
-                      
-                      <TextField
-                        label="Title"
-                        value={filteredData.title}
-                        onChange={(e) =>
-                          setEditItem({ ...editItem, titulo: e.target.value })
-                        }
-                      />
+                      <Card elevation={10} sx={{ boxShadow: "2px 2px 20px black", mt: 2 }}>
+                        <CardContent>
 
-                      <TextField
-                        label="Name"
-                        value={filteredData.name}
-                        onChange={(e) =>
-                          setEditItem({ ...editItem, name: e.target.value })
-                        }
-                      />
-                      {/* Add other fields to the form here */}
-                      <Button type="submit">Save Changes</Button>
-                      <Button onClick={handleEditClose}>Cancel</Button>
+                          <Typography sx={{ color: "black", fontWeight: "Bold", marginBottom: 2, fontSize: 20 }} >Update Content</Typography>
+
+                          <TextField
+                            label="Title"
+                            value={filteredData.title}
+                            onChange={(e) =>
+                              setEditItem({ ...editItem, titulo: e.target.value })
+                            }
+                          />
+
+                          <TextField
+                            label="Name"
+                            value={filteredData.name}
+                            onChange={(e) =>
+                              setEditItem({ ...editItem, name: e.target.value })
+                            }
+                          />
+                          {/* Add other fields to the form here */}
+                          <Button type="submit" sx={{ color: "black" }}>Save Changes</Button>
+                          <Button sx={{ color: "black" }} onClick={handleEditClose}>Cancel</Button>
+                        </CardContent>
+                      </Card>
                     </form>
 
                   </Box>
@@ -305,10 +339,7 @@ export const CustomersTable = () => {
                   <TableRow
                     hover
                     key={item.id}
-                    onClick={() => {
-                      setSelectedItem(item);
-                      setIsDialogOpen(true);
-                    }}
+
                     sx={{ cursor: "pointer" }}
                   >
                     <TableCell padding="checkbox">
@@ -332,7 +363,7 @@ export const CustomersTable = () => {
                         spacing={2}
                       >
 
-                        <Typography sx={{color:"white"}} variant="subtitle2">
+                        <Typography sx={{ color: "white", fontSize: 15, textShadow: "0px 0px 0px black", border: "1px solid black", padding: 1, borderRadius: 10, backgroundColor: "black", textAlign: "center", fontWeight: 300 }} variant="subtitle2">
                           {item.titulo}
                         </Typography>
 
@@ -340,25 +371,44 @@ export const CustomersTable = () => {
 
                     </TableCell>
 
-                    <TableCell sx={{color:"white", textShadow:"1px 1px 1px black"}}>
-                      {item.name}
+                    <TableCell  >
+                      <Typography sx={{ color: "white", fontSize: 15, textShadow: "0px 0px 0px black", border: "1px solid black", padding: 1, borderRadius: 10, backgroundColor: "black", textAlign: "center", fontWeight: 300 }} variant="subtitle2">
+                        {item.name}
+                      </Typography>
                     </TableCell>
 
-                    <TableCell sx={{color:"white"}}>
-                      {item.impact}
+                    <TableCell >
+                      <Typography sx={{ color: "white", fontSize: 15, textShadow: "0px 0px 0px black", border: "1px solid black", padding: 1, borderRadius: 10, backgroundColor: "black", textAlign: "center", fontWeight: 300 }} variant="subtitle2">
+                        {item.impact}
+                      </Typography>
                     </TableCell>
 
-                    <TableCell sx={{color:"white"}}>
-                      {item.bitbucket}
+                    <TableCell sx={{ color: "white" }}>
+                      <Typography sx={{ color: "white", fontSize: 15, textShadow: "0px 0px 0px black", border: "1px solid black", padding: 1, borderRadius: 10, backgroundColor: "black", textAlign: "center", fontWeight: 300 }} variant="subtitle2">
+                        {item.bitbucket}
+                      </Typography>
                     </TableCell>
 
-                    <TableCell sx={{color:"white"}}>
-                      {item.tags.map((tag) => tag.name).join(', ')}
+                    <TableCell sx={{ color: "white" }}>
+                      <Typography sx={{ color: "white", fontSize: 15, textShadow: "0px 0px 0px black", border: "1px solid black", padding: 1, borderRadius: 10, backgroundColor: "black", textAlign: "center", fontWeight: 300 }} variant="subtitle2">
+                        {item.tags.map((tag) => tag.name).join(', ')}
+                      </Typography>
                     </TableCell>
 
-                    <TableCell sx={{color:"white"}}>
-                      {item.created_at}
+                    <TableCell sx={{ color: "white" }}>
+                      <Typography sx={{ color: "white", fontSize: 15, textShadow: "0px 0px 0px black", border: "1px solid black", padding: 1, borderRadius: 10, backgroundColor: "black", textAlign: "center", fontWeight: 300 }} variant="subtitle2">
+                        {item.created_at}
+                      </Typography>
                     </TableCell>
+
+                    <TableCell sx={{ color: "white" }}>
+                      <Button onClick={() => {
+                        setSelectedItem(item);
+                        setIsDialogOpen(true);
+                      }} variant='outlined' sx={{ color: "black", borderColor: "black", fontWeight: "bold" }}><EditTwoToneIcon/></Button>
+                    </TableCell>
+
+
 
                   </TableRow>
                 );

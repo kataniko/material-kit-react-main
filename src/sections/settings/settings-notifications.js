@@ -13,6 +13,7 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 
+
 export const SettingsNotifications = () => {
   const handleSubmit = useCallback(
     (event) => {
@@ -23,7 +24,7 @@ export const SettingsNotifications = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card>
+      <Card sx={{border:"1px solid black", backgroundColor:"rgba(255,255,255,0.2)"}}>
         <CardHeader
           subheader="Manage the notifications"
           title="Notifications"
@@ -76,7 +77,7 @@ export const SettingsNotifications = () => {
                 </Typography>
                 <Stack>
                   <FormControlLabel
-                    control={<Checkbox defaultChecked />}
+                    control={<Checkbox defaultChecked  />}
                     label="Email"
                   />
                   <FormControlLabel

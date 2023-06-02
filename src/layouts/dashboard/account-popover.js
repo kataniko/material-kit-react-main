@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
-import { Box, Divider, MenuItem, MenuList, Popover, Typography } from '@mui/material';
+import { Box, Divider, MenuItem, MenuList, Popover, Typography, Button } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 
 /**
@@ -71,8 +71,8 @@ export const AccountPopover = (props) => {
           }
         }}
       >
-        <MenuItem onClick={handleSignOut}>
-          Sign out
+        <MenuItem sx={{color:"black"}} onClick={handleSignOut}>
+          <Button>Sign Out</Button>
         </MenuItem>
       </MenuList>
     </Popover>

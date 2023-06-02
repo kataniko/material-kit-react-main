@@ -2,6 +2,10 @@ body,html{
     overflow-x: hidden !important;
 }
 
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.css-1f4m5zf-MuiPaper-root-MuiDialog-paper {
+    background-color: transparent !important;
+  }
+  
 .fundo {
     background-image: url("../../public/fundex4.jpg");
     background-size: auto;
@@ -192,3 +196,9 @@ body,html{
         height: 100%;
     }
 }
+
+.custom-dialog-content .MuiPaper-root {
+    background-color: rgba(255, 0, 0, 0);
+    color: white;
+  }
+  

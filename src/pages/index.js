@@ -81,7 +81,7 @@ const Page = () => {
 
       <Box
         component="main"
-        sx={{ display: "flex", flexDirection: "column", height: "calc(100vh - 64px)", overflow: "hidden" }}
+        sx={{ display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden" }}
       >
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
@@ -110,7 +110,7 @@ const Page = () => {
                       <TimelineDot />
                     </TimelineSeparator>
                     <TimelineContent sx={{ color: "white", textShadow: "2px 2px 10px black", maxWidth: "500px" }}>
-                      <Typography variant="h4" sx={{ mb: 2, color: "white" }}>
+                      <Typography  sx={{ mb: 2, color: "white",fontSize:{xs:20,md:30}  }}>
                         We are thrilled to have you here.
                         This repository is your go-to resource for accessing the latest code, tools, and documentation needed to make your work more efficient and effective.
                       </Typography>
@@ -123,7 +123,7 @@ const Page = () => {
 
           <Grid item xs={12} sm={6} md={8}>
             <Box sx={{ width: "100%", height: "100%", }}>
-              <Spline className='canvas' scene="https://prod.spline.design/qGCmBTUJtGFV9r4d/scene.splinecode" />
+            <Spline className='canvas' scene="https://prod.spline.design/qGCmBTUJtGFV9r4d/scene.splinecode" />
             </Box>
           </Grid>
         </Grid>
@@ -139,7 +139,7 @@ const Page = () => {
       */}
 
       <Container maxWidth="md" sx={{ textAlign: "center" }}>
-        <Typography variant="h4" sx={{ mb: 2, color: "white", textShadow: "2px 2px 10px black" }}>
+        <Typography  sx={{ mb: 2, color: "white", textShadow: "2px 2px 10px black", fontSize:{xs:20,md:30} }}>
           This repository serves as a central hub for all of our projects.
           Here, you will find everything from design guidelines and coding standards to UI components and libraries.
           We have also included a range of tools and scripts that will help you automate common tasks and streamline your workflow.
